@@ -1,36 +1,32 @@
 class Animal:
-    def __init__(self, nombre, edad):
+    def __init__(self, nombre):
         self.nombre = nombre
-        self.edad = edad
-
-    def emitir_sonido(self):
-        raise NotImplementedError("Este método debe ser implementado por las subclases.")
 
     def mostrar_detalles(self):
-        return f"Nombre: {self.nombre}, Edad: {self.edad}"
+        print(f"Nombre del animal: {self.nombre}")
+
+    def emitir_sonido(self):
+        print("")
 
 
 class Perro(Animal):
-    def __init__(self, nombre, edad, raza):
-        super().__init__(nombre, edad)
-        self.raza = raza
-
     def emitir_sonido(self):
-        return "Guau"
-
-    def mostrar_detalles(self):
-        detalles = super().mostrar_detalles()
-        return f"{detalles}, Raza: {self.raza}"
+        print("Guau!")
 
 
 class Gato(Animal):
-    def __init__(self, nombre, edad, color):
-        super().__init__(nombre, edad)
-        self.color = color
-
     def emitir_sonido(self):
-        return "Miau"
+        print("Miau!")
 
-    def mostrar_detalles(self):
-        detalles = super().mostrar_detalles()
-        return f"{detalles}, Color: {self.color}"   
+
+if __name__ == "__main__":
+    perro = Perro("perro1")
+    gato = Gato("gato1")
+
+    print("Perro:")
+    perro.mostrar_detalles()
+    perro.emitir_sonido()
+
+    print("\nGato:")
+    gato.mostrar_detalles()
+    gato.emitir_sonido()
